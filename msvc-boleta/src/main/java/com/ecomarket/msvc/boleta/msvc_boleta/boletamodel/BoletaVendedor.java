@@ -7,6 +7,6 @@ import lombok.*;
 public class BoletaVendedor {
 
     private Long IdVendedor;
-    private String nomeVendedor;
+    private String nombreVendedor;
     private String RunVendedor;
 }
