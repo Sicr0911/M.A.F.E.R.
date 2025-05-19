@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.boleta.msvc_boleta.boletaservices;
+package com.ecomarket.msvc.boleta.msvc_boleta.services;
 
 import java.util.List;
 
