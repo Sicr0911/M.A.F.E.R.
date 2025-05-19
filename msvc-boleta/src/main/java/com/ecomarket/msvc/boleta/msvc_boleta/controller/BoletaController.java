@@ -1,7 +1,7 @@
-package com.ecomarket.msvc.boleta.msvc_boleta.boletacontroller;
+package com.ecomarket.msvc.boleta.msvc_boleta.controller;
 
-import com.ecomarket.msvc.boleta.msvc_boleta.boletaservices.Boleta;
-import com.ecomarket.msvc.boleta.msvc_boleta.boletaservices.BoletaService;
+import com.ecomarket.msvc.boleta.msvc_boleta.services.Boleta;
+import com.ecomarket.msvc.boleta.msvc_boleta.services.BoletaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
