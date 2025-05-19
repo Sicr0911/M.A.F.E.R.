@@ -23,7 +23,7 @@ public class InventarioServiceImpl implements InventarioService {
     public Inventario findById(Long id) {
         return this.inventarioRepository.findById(id).orElseThrow(
                 () -> new InventarioException("El usuario con el id " + id + "no fue encontrado")
-        )
+        );
     }
 
     @Override
