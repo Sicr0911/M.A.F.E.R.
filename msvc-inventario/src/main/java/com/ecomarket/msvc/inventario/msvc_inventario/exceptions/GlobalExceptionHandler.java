@@ -47,17 +47,17 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(InventarioException.class)
-    public ResponseEntity<ErrorDTO> handlePacienteException(InventarioException exception) {
+    public ResponseEntity<ErrorDTO> handleInventarioException(InventarioException exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
-            // Esto nos sirve para cuando no existe en la base de datos el paciente
+            // Esto nos sirve para cuando no existe en la base de datos de inventario
             Map<String, String> errorMap = Collections.singletonMap("Inventario no encontrado", exception.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
 
 
         } else {
-            // Esto nos sirve para cuando el paciente ya existe en nuestra base de datos
+            // Esto nos sirve para cuando el inventario ya existe en nuestra base de datos
             Map<String, String> errorMap = Collections.singletonMap("Inventario existente", exception.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(this.createErrorDTO(HttpStatus.CONFLICT.value(), new Date(), errorMap));
