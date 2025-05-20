@@ -1,7 +1,7 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventarioservice;
+package com.ecomarket.msvc.inventario.msvc_inventario.services;
 
 import com.ecomarket.msvc.inventario.msvc_inventario.exceptions.InventarioException;
-import com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel.Inventario;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 import com.ecomarket.msvc.inventario.msvc_inventario.inventariorepository.InventarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

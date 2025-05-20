@@ -1,6 +1,6 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventarioservice;
+package com.ecomarket.msvc.inventario.msvc_inventario.services;
 
-import com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel.Inventario;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel.entities;
+package com.ecomarket.msvc.inventario.msvc_inventario.models.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

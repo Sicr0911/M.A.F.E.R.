@@ -1,7 +1,7 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel.entities;
+package com.ecomarket.msvc.inventario.msvc_inventario.models.entities;
 
 
-import com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel.Inventario;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

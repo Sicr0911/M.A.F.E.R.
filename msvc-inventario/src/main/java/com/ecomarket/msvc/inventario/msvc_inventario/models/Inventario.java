@@ -1,8 +1,6 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventariomodel;
+package com.ecomarket.msvc.inventario.msvc_inventario.models;
 
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
