@@ -1,6 +1,4 @@
-package com.ecomarket.msvc.cliente.msvc_cliente.clienteservice;
-
-import com.ecomarket.msvc.cliente.msvc_cliente.clientemodel.Cliente;
+package com.ecomarket.msvc.cliente.msvc_cliente.services;
 
 import java.util.List;
 

@@ -1,9 +1,7 @@
-package com.ecomarket.msvc.cliente.msvc_cliente.clientecontroller;
+package com.ecomarket.msvc.cliente.msvc_cliente.controllers;
 
-import com.ecomarket.msvc.cliente.msvc_cliente.clientemodel.Cliente;
-import com.ecomarket.msvc.cliente.msvc_cliente.clienteservice.ClienteService;
+import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteService;
 import jakarta.validation.Valid;
-import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

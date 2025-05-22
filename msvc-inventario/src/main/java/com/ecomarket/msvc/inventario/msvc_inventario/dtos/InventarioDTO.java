@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class InventarioDTO {
 
     private Integer costo;
+    private String producto;
     private String comentario;
 
 }
