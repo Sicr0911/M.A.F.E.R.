@@ -1,6 +1,5 @@
-package com.ecomarket.msvc.cliente.msvc_cliente.clienterepository;
+package com.ecomarket.msvc.cliente.msvc_cliente.repositories;
 
-import com.ecomarket.msvc.cliente.msvc_cliente.clientemodel.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

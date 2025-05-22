@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.inventario.msvc_inventario.inventariorepository;
+package com.ecomarket.msvc.inventario.msvc_inventario.repositories;
 
 import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 import org.springframework.data.jpa.repository.JpaRepository;
