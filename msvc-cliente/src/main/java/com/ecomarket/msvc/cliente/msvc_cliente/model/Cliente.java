@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.cliente.msvc_cliente.models;
+package com.ecomarket.msvc.cliente.msvc_cliente.model;
 
 import lombok.*;
 
