@@ -41,17 +41,18 @@ public class GlobalExeptions {
     @ExceptionHandler(BoletaExeption.class)
     public ResponseEntity<errorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
 
+        Map<String, String> errorMap = null;
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
-            Map(String, String)ErrorMap = Collections.singletonMap("Boleta no encontrada", exception.getMessage());
+            Map<String, String> ErrorMap = Collections.singletonMap("Boleta no encontrada", exception.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(this.CreateErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(),errorMap));
-        }else {
-            Map<String,String>errorMap = Collections.singletonMap("Boleta existente",exception.getMessage());
+                    .body(this.CreateErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
+        } else {
+            errorMap = Collections.singletonMap("Boleta existente", exception.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(this.CreateErrorDTO(HttpStatus.CONTINUE.value(), new Date(), errorMap);
+                    .body(this.CreateErrorDTO(HttpStatus.CONTINUE.value(), new Date(), errorMap));
         }
 
-}
+    }
 
 
 
