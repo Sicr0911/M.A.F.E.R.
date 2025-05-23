@@ -1,12 +1,10 @@
 package com.ecomarket.msvc.inventario.msvc_inventario.models;
 
-import lombok.*;
-
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class Producto {
+
+    private Long id;
+    private String nombre;
+    private String descripcion;
+    private Long stock;
+
 }

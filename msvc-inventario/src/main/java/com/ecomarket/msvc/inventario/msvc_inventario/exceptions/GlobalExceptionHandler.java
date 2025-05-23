@@ -16,7 +16,6 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Se crea metodo privado que permite generar el error DTO con los elementos basicos del error
     private ErrorDTO createErrorDTO(int status, Date date, Map<String, String> errorMap) {
         ErrorDTO errorDTO = new ErrorDTO();
 
@@ -27,13 +26,7 @@ public class GlobalExceptionHandler {
         return errorDTO;
     }
 
-    /**
-     * De esta forma se permite capturar los mensajes de error en caso que los argumenteos que fueron solicitado, no
-     * cumplan con la condicion de valitaion que fue generadoa futuro.
-     *
-     * @param exception
-     * @return
-     */
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
         Map<String, String> errorMap = new HashMap<>();
@@ -50,14 +43,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorDTO> handleInventarioException(InventarioException exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
-            // Esto nos sirve para cuando no existe en la base de datos de inventario
             Map<String, String> errorMap = Collections.singletonMap("Inventario no encontrado", exception.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
 
 
         } else {
-            // Esto nos sirve para cuando el inventario ya existe en nuestra base de datos
             Map<String, String> errorMap = Collections.singletonMap("Inventario existente", exception.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(this.createErrorDTO(HttpStatus.CONFLICT.value(), new Date(), errorMap));
