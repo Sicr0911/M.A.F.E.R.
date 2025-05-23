@@ -1,5 +1,6 @@
-package com.ecomarket.msvc.producto.controllers;
+package com.ecomarket.msvc.producto.controller;
 
+import com.ecomarket.msvc.producto.models.entities.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +18,14 @@ import java.util.List;
 public class ProductoController {
 
     @Autowired
-    private InventarioService inventarioService;
+    private ProductoController productoController;
 
     @GetMapping
-    public ResponseEntity<List<Inventario>> findAll(){
-        List<Inventario> inventarios = this.inventarioService.findAll();
-        return ResponseEntity.status(HttpStatus.OK).body(inventarios);
+    public ResponseEntity<List<Producto>> findAll() {
+        List<Producto> sucursales = this.sucursalService.findAll();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(sucursales);
     }
 
 }
