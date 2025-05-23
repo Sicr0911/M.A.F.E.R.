@@ -9,7 +9,7 @@ import lombok.*;
 @Table(name = "Ficha_Paciente")
 @Getter @Setter @ToString
 @AllArgsConstructor @NoArgsConstructor
-public class FichaPaciente {
+public class FichaCliente {
 
     @Id
     @Column(name = "id_ficha_cliente")
@@ -21,6 +21,6 @@ public class FichaPaciente {
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "id_paciente", nullable = false)
+    @JoinColumn(nullable = false)
     private Cliente cliente;
 }
