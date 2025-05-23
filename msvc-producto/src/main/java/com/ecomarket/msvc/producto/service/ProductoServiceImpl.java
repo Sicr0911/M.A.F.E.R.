@@ -22,7 +22,7 @@ public class ProductoServiceImpl implements ProductoService{
     @Override
     public Producto findById(Long id) {
         return this.productoRepository.findById(id).orElseThrow(
-                () -> new ProductoException("El producto con el id:" + id + "no existe")
+                () -> new ProductoException("La sucursal con el id:" + id + "no existe")
         );
     }
 

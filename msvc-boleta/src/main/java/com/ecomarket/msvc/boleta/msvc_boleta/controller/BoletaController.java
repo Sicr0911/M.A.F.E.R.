@@ -20,12 +20,11 @@ public class BoletaController {
     private BoletaService boletaService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<BoletaDTO>> findAll(){
+    public ResponseEntity<List<Boleta>> findAll(){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(this.boletaService.findAll());
     }
-
 
     @PostMapping
     public ResponseEntity<Boleta> save(@Valid @RequestBody Boleta boleta) {
