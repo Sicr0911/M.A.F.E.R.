@@ -4,9 +4,11 @@ import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions.DetalleCompraException;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.repositories.DetalleCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DetalleCompraServiceImpl implements DetalleCompraServices{
 
     @Autowired

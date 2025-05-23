@@ -4,9 +4,11 @@ import com.ecomarket.msvc.cliente.msvc_cliente.exceptions.ClienteException;
 import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
