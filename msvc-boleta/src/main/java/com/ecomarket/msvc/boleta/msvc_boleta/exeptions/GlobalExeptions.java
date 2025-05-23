@@ -20,9 +20,9 @@ public class GlobalExeptions {
     private errorDTO CreateErrorDTO(int status, Date date, Map<String, String> errorMap) {
         errorDTO ErrorDTO = new errorDTO();
 
-        ErrorDTO.setstatus(status);
-        ErrorDTO.setdate(date);
-        ErrorDTO.seterrors(errorMap);
+        ErrorDTO.setStatus(status);
+        ErrorDTO.setDate(date);
+        ErrorDTO.setErrors(errorMap);
 
         return ErrorDTO;
     }

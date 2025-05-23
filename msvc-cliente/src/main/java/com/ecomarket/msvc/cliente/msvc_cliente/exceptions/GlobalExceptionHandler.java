@@ -16,7 +16,6 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Se crea metodo privado que permite generar el error DTO con los elementos basicos del error
     private ErrorDTO createErrorDTO(int status, Date date, Map<String, String> errorMap) {
         ErrorDTO errorDTO = new ErrorDTO();
 
@@ -28,33 +27,34 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
+    public ResponseEntity<ErrorDTO> handleValidationFields(MethodArgumentNotValidException exception){
         Map<String, String> errorMap = new HashMap<>();
         for (FieldError fieldError : exception.getBindingResult().getFieldErrors()) {
             errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
-
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
 
     @ExceptionHandler(ClienteException.class)
-    public ResponseEntity<ErrorDTO> handleDetalleCompraException(ClienteException exception) {
+    public ResponseEntity<ErrorDTO> handleValidationFields(ClienteException exception){
+        Map<String, String> errorMap = Collections.singletonMap("Cliente no encontrado", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
+    }
 
-        if (exception.getMessage().contains("no se encuentra en la base de datos")) {
-            // Esto nos sirve para cuando el detalle no existe en la base de datos
-            Map<String, String> errorMap = Collections.singletonMap("Inventario no encontrado", exception.getMessage());
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
+
+    @ExceptionHandler(FichaClienteExeption.class)
+    public ResponseEntity<ErrorDTO> handleValidationFields(FichaClienteExeption exception){
+
+        if (exception.getMessage().contains("Cliente no se encuentra registrado en la base de datos")) {
+            Map<String, String> errorMap = Collections.singletonMap("Cliente no encontrado",exception.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
-
-
-        } else {
-            // Esto nos sirve para cuando el detalle ya existe en nuestra base de datos
-            Map<String, String> errorMap = Collections.singletonMap("Inventario existente", exception.getMessage());
-            return ResponseEntity
-                    .status(HttpStatus.CONFLICT)
+        }else{
+            Map<String, String> errorMap = Collections.singletonMap("Ficha de cliente encontrado",exception.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(this.createErrorDTO(HttpStatus.CONFLICT.value(), new Date(), errorMap));
         }
     }
