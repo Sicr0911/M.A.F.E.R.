@@ -38,16 +38,14 @@ public class GlobalExceptionHandler {
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
 
-    @ExceptionHandler(DetalleCompraException.class)
-    public ResponseEntity<ErrorDTO> handleDetalleCompraException(DetalleCompraException exception) {
+    @ExceptionHandler(Inventario.class)
+    public ResponseEntity<ErrorDTO> handleInventarioException(DetalleCompraException exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
             // Esto nos sirve para cuando el detalle no existe en la base de datos
             Map<String, String> errorMap = Collections.singletonMap("Inventario no encontrado", exception.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
-
-
         } else {
             // Esto nos sirve para cuando el detalle ya existe en nuestra base de datos
             Map<String, String> errorMap = Collections.singletonMap("Inventario existente", exception.getMessage());

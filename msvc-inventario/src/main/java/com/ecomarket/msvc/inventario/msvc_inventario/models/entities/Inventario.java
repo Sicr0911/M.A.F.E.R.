@@ -23,27 +23,18 @@ public class Inventario {
     @Column(name = "id_inventario")
     private Long idInventario;
 
-    @Column(nullable = false, unique = true)
-    @NotBlank(message = "El campo run cliente no puede ser vacio")
-    @Pattern(regexp = "\\d{1,8}-[\\dKk]", message = "El formato del run cliente debe ser XXXXXXXX-X")
-    private String run;
-
     @Column(nullable = false)
-    @NotBlank(message = "El campo nombre cliente no puede ser vacio")
-    private String nombres;
+    @NotBlank(message = "El campo no puede ser vacio")
+    private Integer costo;
 
-    @Column(nullable = false)
-    @NotBlank(message = "El campo apellido cliente no puede ser vacio")
-    private String apellidos;
+    private String comentario;
 
-    @Column(nullable = false)
-    @NotNull(message = "El campo fecha nacimineto no puede ser vacio")
-    private LocalDate fechaNacimiento;
+    @Column(name = "id_boleta", nullable = false, unique = true)
+    @NotNull(message = "El campo id boleta no puede ser vacio")
+    private Long idBoleta;
 
-    private String correo;
-
-    @Column(nullable = false, name = "id_prevision")
-    @NotNull(message = "El campo id_tipo_cliente no puede ser vacio")
-    private Long idPrevision;
+    @Column(nullable = false, name = "id_cliente")
+    @NotNull(message = "El campo id cliente no puede ser vacio")
+    private Long idCliente;
 
 }

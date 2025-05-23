@@ -26,7 +26,6 @@ public class GlobalExceptionHandler {
         return errorDTO;
     }
 
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
         Map<String, String> errorMap = new HashMap<>();
@@ -37,7 +36,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
-
 
     @ExceptionHandler(InventarioException.class)
     public ResponseEntity<ErrorDTO> handleInventarioException(InventarioException exception) {
