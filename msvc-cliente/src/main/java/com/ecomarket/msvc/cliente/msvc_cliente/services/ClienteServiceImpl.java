@@ -9,7 +9,6 @@ import java.util.List;
 
 public class ClienteServiceImpl implements ClienteService {
 
-
     @Autowired
     private ClienteRepository clienteRepository;
 
