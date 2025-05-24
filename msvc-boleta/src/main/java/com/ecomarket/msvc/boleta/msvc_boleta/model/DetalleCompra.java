@@ -13,7 +13,7 @@ public class DetalleCompra {
     private Integer precio;
     private String producto ;
     private Long idBoleta;
-    private Long idProducto;
+    private Long idSucursal;
     private Date fecha;
 
 }

@@ -1,6 +1,5 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.controller;
 
-import com.ecomarket.msvc.boleta.msvc_boleta.dtos.BoletaDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.entities.Boleta;
 import com.ecomarket.msvc.boleta.msvc_boleta.services.BoletaService;
 import jakarta.validation.Valid;
