@@ -3,6 +3,9 @@ package com.ecomarket.msvc.boleta.msvc_boleta.services;
 import com.ecomarket.msvc.boleta.msvc_boleta.clients.ClienteClients;
 import com.ecomarket.msvc.boleta.msvc_boleta.clients.DetalleCompraClients;
 import com.ecomarket.msvc.boleta.msvc_boleta.clients.SucursalClients;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.BoletaDTO;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.ClienteDTO;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.DetalleCompraDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.exeptions.BoletaExeption;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.Cliente;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.DetalleCompra;
@@ -31,7 +34,7 @@ public class BoletaServiceImpl implements BoletaService{
     private SucursalClients sucursalClients;
 
     @Override
-    public List<Boleta> findAll() {
+    public List<BoletaDTO> findAll() {
         return this.boletaRepositories.findAll().stream().map(boleta  -> {
 
             Cliente cliente = null ;
@@ -52,7 +55,25 @@ public class BoletaServiceImpl implements BoletaService{
                 throw new BoletaExeption("El cliente no existe en el sistema");
             }
 
-        });
+            ClienteDTO clienteDTO = new ClienteDTO();
+            clienteDTO.setRunCliente(cliente.getIdCliente());
+            clienteDTO.setNombreCompleto(cliente.getNombreCompleto());
+            clienteDTO.setCorreo(cliente.getCorreo());
+
+            DetalleCompraDTO detalleCompraDTO = new DetalleCompraDTO();
+            detalleCompraDTO.setCosto(detalleCompra.getCosto());
+            detalleCompraDTO.setCant(detalleCompra.getCant());
+            detalleCompraDTO.setProducto(detalleCompra.getProducto());
+            detalleCompraDTO.setFecha(detalleCompra.getFecha());
+            detalleCompraDTO.setComentario(detalleCompra.getComentario());
+            detalleCompraDTO.setIdSucursal(detalleCompra.getIdSucursal());
+
+            BoletaDTO boletaDTO = new BoletaDTO();
+            boletaDTO.setCliente(clienteDTO);
+            boletaDTO.setDetalleCompra(detalleCompraDTO);
+            return boletaDTO;
+
+        }).toList();
     }
 
     @Override

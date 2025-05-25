@@ -11,6 +11,7 @@ public class BoletaDTO {
     private LocalDateTime HoraBoleta;
     private Integer Costo;
     private String Detalle;
+    private ClienteDTO cliente;
     private DetalleCompraDTO DetalleCompra;
     private SucursalDTO Sucursal;
 

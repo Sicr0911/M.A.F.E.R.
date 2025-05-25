@@ -1,5 +1,6 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.dtos;
 
+import com.ecomarket.msvc.boleta.msvc_boleta.model.Sucursal;
 import lombok.*;
 
 import java.util.Date;
@@ -13,9 +14,10 @@ import java.util.Date;
 public class DetalleCompraDTO {
 
     private Integer costo ;
-    private Integer cantidad ;
+    private Integer cant ;
     private String producto ;
     private Date fecha ;
     private String comentario ;
+    private Long idSucursal ;
 
 }

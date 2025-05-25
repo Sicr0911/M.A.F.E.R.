@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface BoletaService {
 
-    List<Boleta> findAll();
+    List<BoletaDTO> findAll();
     Boleta findById(Long id) ;
     Boleta save(Boleta boleta) ;
 

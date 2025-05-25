@@ -9,11 +9,12 @@ import java.util.Date;
 public class DetalleCompra {
 
     private Long idDetalleCompra;
-    private Integer cantTotal;
-    private Integer precio;
+    private Integer cant;
+    private Integer costo;
     private String producto ;
     private Long idBoleta;
     private Long idSucursal;
     private Date fecha;
+    private String comentario;
 
 }
