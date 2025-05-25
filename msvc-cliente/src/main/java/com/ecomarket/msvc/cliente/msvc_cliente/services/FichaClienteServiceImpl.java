@@ -3,7 +3,8 @@ package com.ecomarket.msvc.cliente.msvc_cliente.services;
 import com.ecomarket.msvc.cliente.msvc_cliente.dtos.FichaClienteDTO;
 import com.ecomarket.msvc.cliente.msvc_cliente.exceptions.FichaClienteExeption;
 import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.Cliente;
-import com.ecomarket.msvc.cliente.msvc_cliente.repositories.FichaCliente;
+import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.FichaCliente;
+import com.ecomarket.msvc.cliente.msvc_cliente.repositories.FichaClienteRepisitory;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,23 +12,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FichaClienteServiceImpl {
+public class FichaClienteServiceImpl implements FichaClienteService {
 
     @Autowired
-    private FichaCliente fichaCliente;
+    private FichaClienteRepisitory fichaClienteRepisitory;
 
     @Autowired
     private ClienteService clienteService;
 
     @Transactional(readOnly = true)
-    @Override
-    public List<FichaCliente> findAll(){return this.fichaCliente.findAll();}
+    public List<FichaClienteRepisitory> findAll(){
+        return this.fichaClienteRepisitory.findAll();
+    }
 
-    @Transactional(readOnly = true)
+    @Transactional(readonly = true)
     @Override
-    public FichaCliente findbyId(Long id){
-        return FichaCliente.findbyId(id).orElseThrow(
-                () -> new FichaClienteExeption("FichaCliente con id "+id+" no encontrada")
+    public FichaClienteRepisitory findById(Long id){
+        return this.fichaClienteRepisitory.findById(id).orElseThrow(
+                () -> new FichaClienteExeption("Ficha Cliente no encontrado "+id)
         );
     }
 
@@ -37,7 +39,7 @@ public class FichaClienteServiceImpl {
         Cliente cliente = this.clienteService.findById(fichaCliente.getIdCliente());
         FichaCliente fichaClienteEntity = new FichaCliente();
         fichaClienteEntity.setCliente(cliente);
-        fichaClienteEntity.setdatosPersonales(fichaCliente.getDatosPersonales());
-        return this.fichaClienteRepository.save(fichaClienteEntity);
+        fichaClienteEntity.setDatosPersonales(fichaCliente.getDatosPersonales());
+        return this.fichaClienteRepisitory.save(fichaClienteEntity);
     }
 }
