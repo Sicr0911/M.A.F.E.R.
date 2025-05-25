@@ -66,5 +66,6 @@ public class BoletaServiceImpl implements BoletaService{
     public Boleta save(Boleta boleta) {
         return null;
     }
+    }
 
-}
+
