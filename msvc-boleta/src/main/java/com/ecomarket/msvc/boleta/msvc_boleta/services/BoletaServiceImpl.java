@@ -85,8 +85,30 @@ public class BoletaServiceImpl implements BoletaService{
 
     @Override
     public Boleta save(Boleta boleta) {
-        return null;
+        try {
+            Cliente cliente = this.clienteClients.findById(boleta.getIdCliente());
+            DetalleCompra detalleCompra = this.detalleCompraClients.findById(boleta.getIdDetalleCompra());
+        } catch (FeignException ex) {
+            throw new BoletaExeption("El cliente no está asociado en el sistema");
+        }
+        return this.boletaRepositories.save(boleta);
     }
+
+    @Override
+    public List<Boleta> findBySucursalId(Long sucursalId) {
+        return this.boletaRepositories.findByIdSucursal(sucursalId);
     }
+
+    @Override
+    public List<Boleta> findByClienteId(Long clienteId) {
+        return this.boletaRepositories.findByClienteId(clienteId);
+    }
+
+    @Override
+    public List<Boleta> findByDetalleCompraId(Long detalleCompraId) {
+        return this.boletaRepositories.findByIdDetalleCompra(detalleCompraId);
+    }
+
+}
 
 

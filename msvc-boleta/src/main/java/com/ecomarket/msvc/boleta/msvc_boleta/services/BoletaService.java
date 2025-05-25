@@ -12,5 +12,7 @@ public interface BoletaService {
     List<BoletaDTO> findAll();
     Boleta findById(Long id) ;
     Boleta save(Boleta boleta) ;
-
+    List<Boleta>  findBySucursalId (Long sucursalId) ;
+    List<Boleta>  findByClienteId (Long clienteId) ;
+    List<Boleta>  findByDetalleCompraId (Long detalleCompraId) ;
 }
