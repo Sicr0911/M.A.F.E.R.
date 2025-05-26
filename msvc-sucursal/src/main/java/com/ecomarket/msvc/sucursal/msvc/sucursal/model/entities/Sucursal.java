@@ -6,7 +6,8 @@ import lombok.*;
 
 @Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor
-@Entity @Table(name="sucursal")
+@Entity
+@Table(name="sucursal")
 public class Sucursal {
 
     @Id
