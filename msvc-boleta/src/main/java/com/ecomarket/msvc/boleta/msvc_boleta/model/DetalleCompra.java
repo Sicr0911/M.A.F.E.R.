@@ -12,7 +12,6 @@ public class DetalleCompra {
     private Integer cant;
     private Integer costo;
     private String producto ;
-    private Long idBoleta;
     private Long idSucursal;
     private Date fecha;
     private String comentario;

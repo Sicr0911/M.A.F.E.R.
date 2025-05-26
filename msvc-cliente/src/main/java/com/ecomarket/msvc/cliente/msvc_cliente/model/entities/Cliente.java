@@ -2,6 +2,7 @@ package com.ecomarket.msvc.cliente.msvc_cliente.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
@@ -27,5 +28,13 @@ public class Cliente {
 
     @Column(nullable = false)
     private String correo ;
+
+    @Column(name = "id_detalle_compra", nullable = false)
+    @NotNull(message = "El campo no puede ser vacio")
+    private Long idDetalleCompra;
+
+    @Column(name = "id_sucursal", nullable = false)
+    @NotNull(message = "El campo no puede ser vacio")
+    private Long idSucursal;
 
 }

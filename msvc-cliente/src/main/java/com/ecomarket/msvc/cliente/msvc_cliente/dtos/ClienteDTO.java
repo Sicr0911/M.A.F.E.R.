@@ -9,4 +9,5 @@ public class ClienteDTO {
     private String nombre;
     private Long Run;
     private String Correo;
+
 }

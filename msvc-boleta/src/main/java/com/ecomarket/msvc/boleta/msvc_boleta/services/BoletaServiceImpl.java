@@ -52,7 +52,7 @@ public class BoletaServiceImpl implements BoletaService{
                 detalleCompra = this.detalleCompraClients.findById(boleta.getIdDetalleCompra()) ;
                 sucursal = this.sucursalClients.findById(detalleCompra.getIdSucursal());
             } catch (FeignException ex) {
-                throw new BoletaExeption("El cliente no existe en el sistema");
+                throw new BoletaExeption("El detalle no existe en el sistema");
             }
 
             ClienteDTO clienteDTO = new ClienteDTO();

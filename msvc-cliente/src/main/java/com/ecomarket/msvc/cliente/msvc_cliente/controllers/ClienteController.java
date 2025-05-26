@@ -1,5 +1,6 @@
 package com.ecomarket.msvc.cliente.msvc_cliente.controllers;
 
+import com.ecomarket.msvc.cliente.msvc_cliente.dtos.ClienteDTO;
 import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteService;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ public class ClienteController {
 
     @GetMapping
     public ResponseEntity<List<Cliente>> findAl() {
-        List<Cliente> clientes = this.clienteService.findAll() ;
+        List<ClienteDTO> clientes = this.clienteService.findAll() ;
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(clientes) ;
