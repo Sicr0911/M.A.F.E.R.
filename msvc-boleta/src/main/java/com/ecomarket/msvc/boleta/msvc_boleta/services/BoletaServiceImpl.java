@@ -1,8 +1,8 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.services;
 
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.ClienteClients;
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.DetalleCompraClients;
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.SucursalClients;
+import com.ecomarket.msvc.boleta.msvc_boleta.clients.ClienteClientsRest;
+import com.ecomarket.msvc.boleta.msvc_boleta.clients.DetalleCompraClientsRest;
+import com.ecomarket.msvc.boleta.msvc_boleta.clients.SucursalClientsRest;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.BoletaDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.ClienteDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.DetalleCompraDTO;
@@ -25,13 +25,13 @@ public class BoletaServiceImpl implements BoletaService{
     private BoletaRepositories boletaRepositories;
 
     @Autowired
-    private ClienteClients clienteClients;
+    private ClienteClientsRest clienteClientsRest;
 
     @Autowired
-    private DetalleCompraClients detalleCompraClients;
+    private DetalleCompraClientsRest detalleCompraClientsRest;
 
     @Autowired
-    private SucursalClients sucursalClients;
+    private SucursalClientsRest sucursalClientsRest;
 
     @Override
     public List<BoletaDTO> findAll() {
@@ -40,7 +40,7 @@ public class BoletaServiceImpl implements BoletaService{
             Cliente cliente = null ;
 
             try {
-                cliente = this.clienteClients.findById(boleta.getIdCliente());
+                cliente = this.clienteClientsRest.findById(boleta.getIdCliente());
             } catch (FeignException ex) {
                 throw new BoletaExeption("El cliente no existe en el sistema");
             }
@@ -49,8 +49,8 @@ public class BoletaServiceImpl implements BoletaService{
             Sucursal sucursal = null ;
 
             try {
-                detalleCompra = this.detalleCompraClients.findById(boleta.getIdDetalleCompra()) ;
-                sucursal = this.sucursalClients.findById(detalleCompra.getIdSucursal());
+                detalleCompra = this.detalleCompraClientsRest.findById(boleta.getIdDetalleCompra()) ;
+                sucursal = this.sucursalClientsRest.findById(detalleCompra.getIdSucursal());
             } catch (FeignException ex) {
                 throw new BoletaExeption("El detalle no existe en el sistema");
             }
@@ -86,8 +86,8 @@ public class BoletaServiceImpl implements BoletaService{
     @Override
     public Boleta save(Boleta boleta) {
         try {
-            Cliente cliente = this.clienteClients.findById(boleta.getIdCliente());
-            DetalleCompra detalleCompra = this.detalleCompraClients.findById(boleta.getIdDetalleCompra());
+            Cliente cliente = this.clienteClientsRest.findById(boleta.getIdCliente());
+            DetalleCompra detalleCompra = this.detalleCompraClientsRest.findById(boleta.getIdDetalleCompra());
         } catch (FeignException ex) {
             throw new BoletaExeption("El cliente no está asociado en el sistema");
         }
