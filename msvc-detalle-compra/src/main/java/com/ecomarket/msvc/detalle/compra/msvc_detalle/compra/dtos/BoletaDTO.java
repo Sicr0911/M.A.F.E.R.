@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 
 public class BoletaDTO {
 
-    private Long idBoleta;
     private LocalDateTime HoraBoleta;
+    private Integer Costo;
     private String Detalle;
 
 }

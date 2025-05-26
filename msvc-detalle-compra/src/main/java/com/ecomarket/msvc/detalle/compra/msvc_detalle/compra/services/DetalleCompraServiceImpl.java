@@ -2,7 +2,9 @@ package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.services;
 
 
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.clients.BoletaClientsRest;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.BoletaDTO;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.DetalleCompraDTO;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.ProductoDTO;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.Boleta;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions.DetalleCompraException;
@@ -46,8 +48,24 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
                 throw new DetalleCompraException("El producto no existe");
             }
 
-        }
-        );
+            BoletaDTO boletaDTO = new BoletaDTO() ;
+            boletaDTO.setHoraBoleta(boleta.getHoraBoleta());
+            boletaDTO.setCosto(boletaDTO.getCosto());
+            boletaDTO.setDetalle(boletaDTO.getDetalle());
+
+            ProductoDTO productoDTO = new ProductoDTO() ;
+            productoDTO.setNombreProducto(producto.getNombreProducto());
+            productoDTO.setDescripcionProducto(producto.getDescripcionProducto());
+            productoDTO.setPrecioProducto(producto.getPrecioProducto());
+
+            DetalleCompraDTO detalleCompraDTO = new DetalleCompraDTO() ;
+            detalleCompraDTO.setIdBoleta(boletaDTO) ;
+            detalleCompraDTO.setIdProducto(productoDTO);
+
+            return detalleCompraDTO ;
+
+
+        }).toList() ;
 
     }
 

@@ -11,8 +11,8 @@ import lombok.*;
 public class ProductoDTO {
 
     private Long idProducto;
-    private String nombre;
-    private String descripcion;
-    private Long stock;
+    private String nombreProducto;
+    private String descripcionProducto;
+    private String precioProducto;
 
 }
