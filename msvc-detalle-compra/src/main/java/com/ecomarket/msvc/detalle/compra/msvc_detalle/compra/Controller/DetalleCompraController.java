@@ -1,5 +1,6 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.Controller;
 
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.DetalleCompraDTO;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.services.DetalleCompraServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class DetalleCompraController {
 
     @GetMapping
     public ResponseEntity<List<DetalleCompra>> findAll() {
-        List<DetalleCompra> detalles = this.detalleCompraServices.findAll();
+        List<DetalleCompraDTO> detalles = this.detalleCompraServices.findAll();
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(detalles);

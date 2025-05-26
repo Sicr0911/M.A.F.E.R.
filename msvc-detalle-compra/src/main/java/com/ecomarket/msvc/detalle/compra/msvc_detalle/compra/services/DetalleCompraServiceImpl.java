@@ -1,12 +1,20 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.services;
 
+
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.clients.BoletaClientsRest;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.DetalleCompraDTO;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.Boleta;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions.DetalleCompraException;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.repositories.DetalleCompraRepository;
+import com.ecomarket.msvc.inventario.msvc_inventario.clients.ProductoClientsRest;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.Producto;
+import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 public class DetalleCompraServiceImpl implements DetalleCompraServices{
@@ -14,9 +22,33 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
     @Autowired
     private DetalleCompraRepository detalleCompraRepository;
 
+    @Autowired
+    private BoletaClientsRest boletaClientsRest;
+
+    @Autowired
+    private ProductoClientsRest productoClientsRest;
+
     @Override
-    public List<DetalleCompra> findAll() {
-        return this.findAll();
+    public List<DetalleCompraDTO> findAll() {
+        return this.detalleCompraRepository.findAll().stream().map(detalleCompra -> {
+
+            Boleta boleta = null;
+            try {
+                boleta = this.boletaClientsRest.findById(detalleCompra.getIdBoleta());
+            } catch (FeignException ex) {
+                throw new DetalleCompraException("La boleta no existe");
+            }
+
+            Producto producto = null;
+            try {
+                producto = this.productoClientsRest.findById(detalleCompra.getIdBoleta());
+            } catch (FeignException ex) {
+                throw new DetalleCompraException("El producto no existe");
+            }
+
+        }
+        );
+
     }
 
     @Override
