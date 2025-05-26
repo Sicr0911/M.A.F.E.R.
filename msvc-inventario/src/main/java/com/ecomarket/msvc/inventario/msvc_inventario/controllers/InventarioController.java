@@ -1,5 +1,6 @@
 package com.ecomarket.msvc.inventario.msvc_inventario.controllers;
 
+import com.ecomarket.msvc.inventario.msvc_inventario.dtos.InventarioDTO;
 import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 import com.ecomarket.msvc.inventario.msvc_inventario.services.InventarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,11 @@ public class InventarioController {
     private InventarioService inventarioService;
 
     @GetMapping
-    public ResponseEntity<List<Inventario>> findAll(){
-        List<Inventario> inventarios = this.inventarioService.findAll();
-        return ResponseEntity.status(HttpStatus.OK).body(inventarios);
+    public ResponseEntity<List<InventarioDTO>> findAll(){
+        List<InventarioDTO> inventarios = this.inventarioService.findAll();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(inventarios);
     }
 
     @PostMapping("/{id}")
