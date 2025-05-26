@@ -1,8 +1,7 @@
 package com.ecomarket.msvc.sucursal.msvc.sucursal.service;
 
 import com.ecomarket.msvc.sucursal.msvc.sucursal.exceptions.SucursalException;
-import com.ecomarket.msvc.sucursal.msvc.sucursal.model.Inventario;
-import com.ecomarket.msvc.sucursal.msvc.sucursal.model.Sucursal;
+import com.ecomarket.msvc.sucursal.msvc.sucursal.model.entities.Sucursal;
 import com.ecomarket.msvc.sucursal.msvc.sucursal.repositories.SucursalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ public class SucursalServiceImpl implements SucursalService {
 
     @Autowired
     private SucursalRepository sucursalRepository;
-
 
     @Override
     public List<Sucursal> findAll() {
