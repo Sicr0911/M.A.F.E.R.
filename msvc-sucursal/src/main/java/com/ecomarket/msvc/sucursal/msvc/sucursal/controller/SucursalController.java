@@ -1,6 +1,6 @@
 package com.ecomarket.msvc.sucursal.msvc.sucursal.controller;
 
-import com.ecomarket.msvc.sucursal.msvc.sucursal.model.entities.Sucursal;
+import com.ecomarket.msvc.sucursal.msvc.sucursal.model.Sucursal;
 import com.ecomarket.msvc.sucursal.msvc.sucursal.service.SucursalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

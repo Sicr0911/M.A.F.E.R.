@@ -30,4 +30,9 @@ public class InventarioServiceImpl implements InventarioService {
     public Inventario save(Inventario inventario) {
         return null;
     }
+
+    @Override
+    public void deleteById(Long id) {
+        inventarioRepository.deleteById(id);
+    }
 }

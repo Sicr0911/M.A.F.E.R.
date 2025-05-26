@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.sucursal.msvc.sucursal.model.entities;
+package com.ecomarket.msvc.sucursal.msvc.sucursal.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

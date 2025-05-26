@@ -1,6 +1,6 @@
-package com.ecomarket.msvc.boleta.msvc_boleta.clients;
+package com.ecomarket.msvc.inventario.msvc_inventario.clients;
 
-import com.ecomarket.msvc.boleta.msvc_boleta.model.Sucursal;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.Sucursal;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

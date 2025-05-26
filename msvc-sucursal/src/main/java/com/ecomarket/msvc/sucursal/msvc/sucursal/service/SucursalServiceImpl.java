@@ -1,7 +1,7 @@
 package com.ecomarket.msvc.sucursal.msvc.sucursal.service;
 
 import com.ecomarket.msvc.sucursal.msvc.sucursal.exceptions.SucursalException;
-import com.ecomarket.msvc.sucursal.msvc.sucursal.model.entities.Sucursal;
+import com.ecomarket.msvc.sucursal.msvc.sucursal.model.Sucursal;
 import com.ecomarket.msvc.sucursal.msvc.sucursal.repositories.SucursalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,3 +29,4 @@ public class SucursalServiceImpl implements SucursalService {
     @Override
     public Sucursal save(Sucursal sucursal) {return sucursalRepository.save(sucursal);}
 }
+

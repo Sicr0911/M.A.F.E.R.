@@ -1,6 +1,6 @@
 package com.ecomarket.msvc.sucursal.msvc.sucursal.service;
 
-import com.ecomarket.msvc.sucursal.msvc.sucursal.model.entities.Sucursal;
+import com.ecomarket.msvc.sucursal.msvc.sucursal.model.Sucursal;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
