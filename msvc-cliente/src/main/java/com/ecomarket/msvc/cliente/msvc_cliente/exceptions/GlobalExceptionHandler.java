@@ -44,20 +44,6 @@ public class GlobalExceptionHandler {
                 .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
     }
 
-
-    @ExceptionHandler(FichaClienteExeption.class)
-    public ResponseEntity<ErrorDTO> handleValidationFields(FichaClienteExeption exception){
-
-        if (exception.getMessage().contains("Cliente no se encuentra registrado en la base de datos")) {
-            Map<String, String> errorMap = Collections.singletonMap("Cliente no encontrado",exception.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
-        }else{
-            Map<String, String> errorMap = Collections.singletonMap("Ficha de cliente encontrado",exception.getMessage());
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(this.createErrorDTO(HttpStatus.CONFLICT.value(), new Date(), errorMap));
-        }
-    }
 }
 
 
