@@ -8,11 +8,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ClienteDTO {
+public class ProductoDTO {
 
-    private Long idCliente ;
-    private Long runCliente ;
-    private Long nombreCompleto ;
-    private Long correo ;
+    private Long idProducto;
+    private String nombre;
+    private String descripcion;
+    private Long stock;
 
 }

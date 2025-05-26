@@ -17,5 +17,7 @@ public class DetalleCompraDTO {
     private String producto ;
     private Date fecha ;
     private String comentario ;
+    private ProductoDTO idProducto;
+    private BoletaDTO idBoleta;
 
 }
