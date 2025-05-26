@@ -5,7 +5,7 @@ import lombok.*;
 @Getter @Setter @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class productoDTO {
+public class ProductoDTO {
 
     private Long idProducto;
     private String nombreProducto;

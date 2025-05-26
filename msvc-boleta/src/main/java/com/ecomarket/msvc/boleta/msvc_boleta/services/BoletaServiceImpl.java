@@ -6,6 +6,7 @@ import com.ecomarket.msvc.boleta.msvc_boleta.clients.SucursalClientsRest;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.BoletaDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.ClienteDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.DetalleCompraDTO;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.SucursalDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.exeptions.BoletaExeption;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.Cliente;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.DetalleCompra;
@@ -68,9 +69,16 @@ public class BoletaServiceImpl implements BoletaService{
             detalleCompraDTO.setComentario(detalleCompra.getComentario());
             detalleCompraDTO.setIdSucursal(detalleCompra.getIdSucursal());
 
+            SucursalDTO sucursalDTO = new SucursalDTO() ;
+            sucursalDTO.setNombreSucursal(sucursal.getNombre());
+            sucursalDTO.setDireccion(sucursal.getDireccion());
+            sucursalDTO.setTelefono(sucursal.getTelefono());
+
             BoletaDTO boletaDTO = new BoletaDTO();
             boletaDTO.setCliente(clienteDTO);
             boletaDTO.setDetalleCompra(detalleCompraDTO);
+            boletaDTO.setSucursal(sucursalDTO);
+
             return boletaDTO;
 
         }).toList();

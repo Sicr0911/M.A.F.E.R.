@@ -13,7 +13,7 @@ public class Inventario {
     private Long idInventario;
     private Integer costo;
     private String comentario;
-    private Long idBoleta;
-    private Long idCliente;
+    private Long idSucursal;
+    private Long idProducto;
 
 }

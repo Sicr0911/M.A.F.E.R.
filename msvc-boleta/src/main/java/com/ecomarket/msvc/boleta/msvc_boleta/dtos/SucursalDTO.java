@@ -6,6 +6,7 @@ import lombok.*;
 @ToString @AllArgsConstructor @NoArgsConstructor
 public class SucursalDTO {
 
+    private Long idSucursal;
     private String nombreSucursal;
     private String Direccion;
     private String telefono;
