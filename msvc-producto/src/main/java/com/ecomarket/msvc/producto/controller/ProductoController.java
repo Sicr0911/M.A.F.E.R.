@@ -1,6 +1,6 @@
 package com.ecomarket.msvc.producto.controller;
 
-import com.ecomarket.msvc.producto.models.entities.Producto;
+import com.ecomarket.msvc.producto.models.Producto;
 import com.ecomarket.msvc.producto.service.ProductoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class ProductoController {
                 .body(productos);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Producto> findById(@PathVariable Long id) {
         return  ResponseEntity
                 .status(HttpStatus.OK)

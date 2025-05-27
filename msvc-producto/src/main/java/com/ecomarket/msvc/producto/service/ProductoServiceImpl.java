@@ -1,7 +1,7 @@
 package com.ecomarket.msvc.producto.service;
 
 import com.ecomarket.msvc.producto.exceptions.ProductoException;
-import com.ecomarket.msvc.producto.models.entities.Producto;
+import com.ecomarket.msvc.producto.models.Producto;
 import com.ecomarket.msvc.producto.repositories.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class ProductoServiceImpl implements ProductoService{
 
     @Override
     public List<Producto> findAll() {
-        return this.findAll();
+        return this.productoRepository.findAll();
     }
 
     @Override

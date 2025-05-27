@@ -1,7 +1,6 @@
 package com.ecomarket.msvc.producto.service;
 
-
-import com.ecomarket.msvc.producto.models.entities.Producto;
+import com.ecomarket.msvc.producto.models.Producto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
