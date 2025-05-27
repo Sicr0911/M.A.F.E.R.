@@ -28,9 +28,16 @@ public class ProductoController {
                 .body(productos);
     }
 
+    @GetMapping
+    public ResponseEntity<Producto> findById(@PathVariable Long id) {
+        return  ResponseEntity
+                .status(HttpStatus.OK)
+                .body(this.productoService.findById(id));
+    }
+
     @PostMapping
-    public ResponseEntity<Producto> save(@Valid @RequestBody Producto boleta) {
-        Producto saved = this.productoService.save(boleta);
+    public ResponseEntity<Producto> save(@Valid @RequestBody Producto producto) {
+        Producto saved = this.productoService.save(producto);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(saved);
