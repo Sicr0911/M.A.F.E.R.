@@ -1,6 +1,8 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions;
 
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.ErrorDTO;
+import com.ecomarket.msvc.inventario.msvc_inventario.exceptions.InventarioException;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.entities.Inventario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -38,8 +40,8 @@ public class GlobalExceptionHandler {
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
 
-    @ExceptionHandler(Inventario.class)
-    public ResponseEntity<ErrorDTO> handleInventarioException(DetalleCompraException exception) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorDTO> handleInventarioException(MethodArgumentNotValidException exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
             // Esto nos sirve para cuando el detalle no existe en la base de datos

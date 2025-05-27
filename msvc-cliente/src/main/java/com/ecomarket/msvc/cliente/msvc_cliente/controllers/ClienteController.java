@@ -21,7 +21,7 @@ public class ClienteController {
     private ClienteService clienteService ;
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> findAl() {
+    public ResponseEntity<List<ClienteDTO>> findAl() {
         List<ClienteDTO> clientes = this.clienteService.findAll() ;
         return ResponseEntity
                 .status(HttpStatus.OK)

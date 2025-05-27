@@ -22,7 +22,7 @@ public class DetalleCompraController {
     private DetalleCompraServices detalleCompraServices;
 
     @GetMapping
-    public ResponseEntity<List<DetalleCompra>> findAll() {
+    public ResponseEntity<List<DetalleCompraDTO>> findAll() {
         List<DetalleCompraDTO> detalles = this.detalleCompraServices.findAll();
         return ResponseEntity
                 .status(HttpStatus.OK)
