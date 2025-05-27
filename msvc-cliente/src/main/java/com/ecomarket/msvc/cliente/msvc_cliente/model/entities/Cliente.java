@@ -29,12 +29,4 @@ public class Cliente {
     @Column(nullable = false)
     private String correo ;
 
-    @Column(name = "id_detalle_compra", nullable = false)
-    @NotNull(message = "El campo no puede ser vacio")
-    private Long idDetalleCompra;
-
-    @Column(name = "id_sucursal", nullable = false)
-    @NotNull(message = "El campo no puede ser vacio")
-    private Long idSucursal;
-
 }
