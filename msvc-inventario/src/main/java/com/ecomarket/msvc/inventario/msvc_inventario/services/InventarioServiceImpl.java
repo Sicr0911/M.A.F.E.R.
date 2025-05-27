@@ -76,11 +76,29 @@ public class InventarioServiceImpl implements InventarioService {
 
     @Override
     public Inventario save(Inventario inventario) {
-        return null;
+        try {
+            Producto producto = this.productoClientsRest.findById(inventario.getIdProducto()) ;
+            Sucursal sucursal = this.sucursalClientsRest.findById(inventario.getIdSucursal()) ;
+        } catch (FeignException ex) {
+            throw new InventarioException("Existen problemas con la asoción") ;
+        }
+        return this.inventarioRepository.save(inventario) ;
     }
 
     @Override
     public void deleteById(Long id) {
         inventarioRepository.deleteById(id);
     }
+
+    //estos dos tienen problemas, profe dejó en visto. (Producto ya listo y funcional)
+    @Override
+    public List<Inventario> findByProductoId(Long productoId) {
+        return this.inventarioRepository.findByIdProducto(productoId);
+    }
+
+    @Override
+    public List<Inventario> findBySucursalId(Long sucursalId) {
+        return this.inventarioRepository.findByIdSucursal(sucursalId);
+    }
+
 }

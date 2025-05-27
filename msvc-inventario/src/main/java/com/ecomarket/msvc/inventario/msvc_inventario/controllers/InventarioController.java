@@ -3,6 +3,7 @@ package com.ecomarket.msvc.inventario.msvc_inventario.controllers;
 import com.ecomarket.msvc.inventario.msvc_inventario.dtos.InventarioDTO;
 import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
 import com.ecomarket.msvc.inventario.msvc_inventario.services.InventarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +23,36 @@ public class InventarioController {
 
     @GetMapping
     public ResponseEntity<List<InventarioDTO>> findAll(){
-        List<InventarioDTO> inventarios = this.inventarioService.findAll();
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(inventarios);
+                .body(this.inventarioService.findAll());
     }
 
-    @PostMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Inventario> findById(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(this.inventarioService.findById(id));
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(this.inventarioService.findById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Inventario> save(@RequestBody @Valid Inventario inventario) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(this.inventarioService.save(inventario));
+    }
+
+    @GetMapping("/producto/{id}")
+    public ResponseEntity<List<Inventario>> findByIdProducto(@PathVariable Long id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(this.inventarioService.findByProductoId(id));
+    }
+
+    @GetMapping("/sucursal/{id}")
+    public ResponseEntity<List<Inventario>> findByIdSucursal(@PathVariable Long id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(this.inventarioService.findBySucursalId(id));
     }
 }
