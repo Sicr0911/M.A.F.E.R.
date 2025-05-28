@@ -1,7 +1,7 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.services;
 
-
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.clients.BoletaClientsRest;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.clients.ProductoClientsRest;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.BoletaDTO;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.DetalleCompraDTO;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.ProductoDTO;
@@ -9,14 +9,11 @@ import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.Boleta;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions.DetalleCompraException;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.entities.DetalleCompra;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.repositories.DetalleCompraRepository;
-import com.ecomarket.msvc.inventario.msvc_inventario.clients.ProductoClientsRest;
-import com.ecomarket.msvc.inventario.msvc_inventario.models.Producto;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.Producto;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
 
 @Service
 public class DetalleCompraServiceImpl implements DetalleCompraServices{
@@ -35,6 +32,7 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
         return this.detalleCompraRepository.findAll().stream().map(detalleCompra -> {
 
             Boleta boleta = null;
+
             try {
                 boleta = this.boletaClientsRest.findById(detalleCompra.getIdBoleta());
             } catch (FeignException ex) {
@@ -42,16 +40,16 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
             }
 
             Producto producto = null;
+
             try {
-                producto = this.productoClientsRest.findById(detalleCompra.getIdBoleta());
+                producto = this.productoClientsRest.findById(detalleCompra.getIdProducto());
             } catch (FeignException ex) {
                 throw new DetalleCompraException("El producto no existe");
             }
 
             BoletaDTO boletaDTO = new BoletaDTO() ;
             boletaDTO.setHoraBoleta(boleta.getHoraBoleta());
-            boletaDTO.setCosto(boletaDTO.getCosto());
-            boletaDTO.setDetalle(boletaDTO.getDetalle());
+            boletaDTO.setDetalle(boleta.getDetalle());
 
             ProductoDTO productoDTO = new ProductoDTO() ;
             productoDTO.setNombreProducto(producto.getNombreProducto());
@@ -64,9 +62,7 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
 
             return detalleCompraDTO ;
 
-
         }).toList() ;
-
     }
 
     @Override
@@ -78,7 +74,23 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
 
     @Override
     public DetalleCompra save(DetalleCompra detalleCompra) {
-        return null;
+        try {
+            Boleta boleta = this.boletaClientsRest.findById(detalleCompra.getIdBoleta());
+            Producto producto = this.productoClientsRest.findById(detalleCompra.getIdProducto());
+        } catch (FeignException ex) {
+            throw new DetalleCompraException("El cliente no está asociado en el sistema");
+        }
+        return this.detalleCompraRepository.save(detalleCompra);
+    }
+
+    @Override
+    public List<DetalleCompra> findByProductoId(Long productoId) {
+        return this.detalleCompraRepository.findByIdProducto(productoId);
+    }
+
+    @Override
+    public List<DetalleCompra> findByBoletaId(Long boletaId) {
+        return this.detalleCompraRepository.findByIdBoleta(boletaId);
     }
 
 }

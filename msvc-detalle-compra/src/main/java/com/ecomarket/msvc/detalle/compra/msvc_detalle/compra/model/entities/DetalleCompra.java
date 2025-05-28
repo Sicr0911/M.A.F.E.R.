@@ -1,6 +1,7 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Date;
@@ -20,9 +21,11 @@ public class DetalleCompra {
     private Long idDetalleCompra;
 
     @Column(name = "cantidad_total", nullable = false)
+    @NotNull(message = "Debe ingresar valores")
     private Integer cantTotal;
 
     @Column(nullable = false)
+    @NotNull(message = "Debe ingresar valores")
     private Integer precio;
 
     @Column(nullable = false)

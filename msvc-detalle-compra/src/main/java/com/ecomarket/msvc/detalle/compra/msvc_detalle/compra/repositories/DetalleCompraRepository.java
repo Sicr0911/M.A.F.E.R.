@@ -10,4 +10,6 @@ import java.util.List;
 public interface DetalleCompraRepository extends JpaRepository<DetalleCompra, Long> {
 
     List<DetalleCompra> findByIdBoleta(Long idBoleta);
+
+    List<DetalleCompra> findByIdProducto(Long idProducto);
 }
