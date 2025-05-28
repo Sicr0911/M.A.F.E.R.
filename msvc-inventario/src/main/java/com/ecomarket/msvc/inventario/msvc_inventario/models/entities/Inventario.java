@@ -29,12 +29,12 @@ public class Inventario {
 
     private String comentario;
 
-    @Column(name = "id_boleta", nullable = false, unique = true)
+    @Column(name = "id_producto", nullable = false)
     @NotNull(message = "El campo id boleta no puede ser vacio")
-    private Long idBoleta;
+    private Long idProducto;
 
-    @Column(nullable = false, name = "id_cliente")
+    @Column(nullable = false, name = "id_sucursal")
     @NotNull(message = "El campo id cliente no puede ser vacio")
-    private Long idCliente;
+    private Long idSucursal;
 
 }

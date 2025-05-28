@@ -2,6 +2,7 @@ package com.ecomarket.msvc.producto.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -21,6 +22,7 @@ public class Producto {
 
     @Column(nullable = false)
     @NotBlank(message = "El campo nombre no puede ser vacio")
+    @NotNull(message = "Nombre no puede ser vacio")
     private String nombre;
 
     @Column(nullable = false)
@@ -28,7 +30,6 @@ public class Producto {
     private String descripcion;
 
     @Column(nullable = false)
-    @NotBlank(message = "El campo stock no puede ser vacio")
     private Long stock;
 
 }

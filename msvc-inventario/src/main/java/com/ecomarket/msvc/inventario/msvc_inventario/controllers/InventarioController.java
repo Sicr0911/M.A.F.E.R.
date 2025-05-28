@@ -1,7 +1,7 @@
 package com.ecomarket.msvc.inventario.msvc_inventario.controllers;
 
 import com.ecomarket.msvc.inventario.msvc_inventario.dtos.InventarioDTO;
-import com.ecomarket.msvc.inventario.msvc_inventario.models.Inventario;
+import com.ecomarket.msvc.inventario.msvc_inventario.models.entities.Inventario;
 import com.ecomarket.msvc.inventario.msvc_inventario.services.InventarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
