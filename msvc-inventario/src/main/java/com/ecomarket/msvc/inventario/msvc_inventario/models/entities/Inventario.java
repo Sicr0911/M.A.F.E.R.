@@ -37,4 +37,5 @@ public class Inventario {
     @NotNull(message = "El campo id cliente no puede ser vacio")
     private Long idSucursal;
 
+
 }

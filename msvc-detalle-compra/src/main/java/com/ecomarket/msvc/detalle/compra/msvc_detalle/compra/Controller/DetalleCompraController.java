@@ -1,7 +1,6 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.Controller;
 
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.DetalleCompraDTO;
-import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra;
 import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.services.DetalleCompraServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

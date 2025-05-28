@@ -1,6 +1,6 @@
 package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.repositories;
 
-import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.DetalleCompra;
+import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.model.entities.DetalleCompra;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
