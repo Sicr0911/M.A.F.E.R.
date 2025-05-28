@@ -1,8 +1,6 @@
-package com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.exceptions;
+package com.ecomarket.msvc.boleta.msvc_boleta.exeptions;
 
-import com.ecomarket.msvc.detalle.compra.msvc_detalle.compra.dtos.ErrorDTO;
-import com.ecomarket.msvc.inventario.msvc_inventario.exceptions.InventarioException;
-import com.ecomarket.msvc.inventario.msvc_inventario.models.entities.Inventario;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.errorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,8 +18,8 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     // Se crea metodo privado que permite generar el error DTO con los elementos basicos del error
-    private ErrorDTO createErrorDTO(int status, Date date, Map<String, String> errorMap) {
-        ErrorDTO errorDTO = new ErrorDTO();
+    private errorDTO createErrorDTO(int status, Date date, Map<String, String> errorMap) {
+        errorDTO errorDTO = new errorDTO();
 
         errorDTO.setStatus(status);
         errorDTO.setDate(date);
@@ -30,7 +29,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
+    public ResponseEntity<errorDTO> handleValidationFields(MethodArgumentNotValidException exception) {
         Map<String, String> errorMap = new HashMap<>();
         for (FieldError fieldError : exception.getBindingResult().getFieldErrors()) {
             errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
@@ -41,7 +40,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorDTO> handleInventarioException(MethodArgumentNotValidException exception) {
+    public ResponseEntity<errorDTO> handleInventarioException(MethodArgumentNotValidException exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
             // Esto nos sirve para cuando el detalle no existe en la base de datos
