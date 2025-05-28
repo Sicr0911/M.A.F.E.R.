@@ -1,7 +1,7 @@
 package com.ecomarket.msvc.cliente.msvc_cliente.controllers;
 
 import com.ecomarket.msvc.cliente.msvc_cliente.dtos.ClienteDTO;
-import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.Cliente;
+import com.ecomarket.msvc.cliente.msvc_cliente.model.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

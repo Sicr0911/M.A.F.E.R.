@@ -2,7 +2,7 @@ package com.ecomarket.msvc.cliente.msvc_cliente.services;
 
 import com.ecomarket.msvc.cliente.msvc_cliente.dtos.ClienteDTO;
 import com.ecomarket.msvc.cliente.msvc_cliente.exceptions.ClienteException;
-import com.ecomarket.msvc.cliente.msvc_cliente.model.entities.Cliente;
+import com.ecomarket.msvc.cliente.msvc_cliente.model.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
