@@ -90,7 +90,6 @@ public class InventarioServiceImpl implements InventarioService {
         inventarioRepository.deleteById(id);
     }
 
-    //estos dos tienen problemas, profe dejó en visto. (Producto ya listo y funcional)
     @Override
     public List<Inventario> findByProductoId(Long productoId) {
         return this.inventarioRepository.findByIdProducto(productoId);
