@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.cliente.msvc_cliente.model.entities;
+package com.ecomarket.msvc.cliente.msvc_cliente.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
