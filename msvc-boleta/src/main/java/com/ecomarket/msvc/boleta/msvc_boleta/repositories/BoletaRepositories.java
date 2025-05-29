@@ -13,5 +13,5 @@ public interface BoletaRepositories extends JpaRepository<Boleta, Long> {
 
     List<Boleta> findByIdSucursal(Long idSucursal);
 
-    List<Boleta> findByClienteId(Long clienteId);
+    List<Boleta> findByIdCliente(Long clienteId);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface ClienteService {
 
-    List<ClienteDTO> findAll() ;
+    List<Cliente> findAll() ;
     Cliente findById(Long id) ;
     Cliente save(Cliente cliente);
 }

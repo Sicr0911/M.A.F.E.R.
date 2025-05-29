@@ -39,8 +39,8 @@ public class GlobalExceptionHandler {
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<errorDTO> handleInventarioException(MethodArgumentNotValidException exception) {
+    @ExceptionHandler(BoletaExeption.class)
+    public ResponseEntity<errorDTO> handleInventarioException(BoletaExeption exception) {
 
         if (exception.getMessage().contains("no se encuentra en la base de datos")) {
             // Esto nos sirve para cuando el detalle no existe en la base de datos

@@ -109,7 +109,7 @@ public class BoletaServiceImpl implements BoletaService{
 
     @Override
     public List<Boleta> findByClienteId(Long clienteId) {
-        return this.boletaRepositories.findByClienteId(clienteId);
+        return this.boletaRepositories.findByIdCliente(clienteId);
     }
 
     @Override

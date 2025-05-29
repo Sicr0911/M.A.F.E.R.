@@ -16,8 +16,8 @@ public class ClienteServiceImpl implements ClienteService {
     private  ClienteRepository clienteRepository;
 
     @Override
-    public List<ClienteDTO> findAll(){
-        return this.findAll() ;
+    public List<Cliente> findAll(){
+        return this.clienteRepository.findAll() ;
     }
 
     @Override
