@@ -1,9 +1,5 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.init;
 
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.ClienteClientsRest;
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.DetalleCompraClientsRest;
-import com.ecomarket.msvc.boleta.msvc_boleta.clients.SucursalClientsRest;
-import com.ecomarket.msvc.boleta.msvc_boleta.model.Cliente;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.entities.Boleta;
 import com.ecomarket.msvc.boleta.msvc_boleta.repositories.BoletaRepositories;
 import net.datafaker.Faker;
@@ -20,18 +16,10 @@ import java.util.Locale;
 
 @Profile("dev")
 @Component
+
 public class LoadDatabase implements CommandLineRunner {
     @Autowired
     private BoletaRepositories boletaRepositories;
-
-    @Override
-    private ClienteClientsRest clienteClientsRest;
-
-    @Autowired
-    private SucursalClientsRest sucursalClientsRest;
-
-    @Autowired
-    private DetalleCompraClientsRest detalleCompraClientsRest;
 
     private static final Logger logger = LoggerFactory.getLogger(LoadDatabase.class);
 
