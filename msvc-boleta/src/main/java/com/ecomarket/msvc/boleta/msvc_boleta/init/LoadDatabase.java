@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-
 @Profile("dev")
 @Component
 
@@ -30,7 +29,6 @@ public class LoadDatabase implements CommandLineRunner {
             for (int i = 0; i < 10000; i++) {
                 Boleta boleta = new Boleta();
 
-
                 boleta.setIdBoleta(faker.random().nextLong());
                 boleta.setDetalle(faker.commerce().productName());
                 boleta.setIdSucursal(faker.random().nextLong());
@@ -39,6 +37,7 @@ public class LoadDatabase implements CommandLineRunner {
                 boleta.setHoraBoleta(LocalDateTime.now());
 
                 boletaRepositories.save(boleta);
+
                 logger.info("Boleta " + boleta.getIdBoleta() + " creada con exito");
             }
         }
