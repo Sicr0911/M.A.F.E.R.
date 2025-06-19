@@ -84,7 +84,7 @@ public class SucursalServiceTest {
     }
 
     @Test
-    @DisplayName("Debe entregar una excepcion cuando medico id no exista")
+    @DisplayName("Debe entregar una excepcion cuando sucursal id no exista")
     public void shouldNotFindSucursalById(){
         Long idInexistente = 999L;
 
@@ -94,15 +94,15 @@ public class SucursalServiceTest {
             sucursalService.findById(idInexistente);
 
         }).isInstanceOf(SucursalException.class)
-                .hasMessageContaining("El medico con id " + idInexistente
+                .hasMessageContaining("La sucursal con id " + idInexistente
                         + " no se encuentra en la base de datos");
 
         verify(sucursalRepository, times(1)).findById(idInexistente);
     }
 
     @Test
-    @DisplayName("Debe guardar un nuevo medico")
-    public void shouldSaveMedico(){
+    @DisplayName("Debe guardar una nueva sucursal")
+    public void shouldSaveSucursal(){
         when(sucursalRepository.save(any(Sucursal.class))).thenReturn(this.sucursalPrueba);
 
         Sucursal result = sucursalService.save(this.sucursalPrueba);

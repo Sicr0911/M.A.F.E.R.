@@ -3,7 +3,6 @@ package com.ecomarket.msvc.cliente.msvc_cliente.service;
 import com.ecomarket.msvc.cliente.msvc_cliente.exceptions.ClienteException;
 import com.ecomarket.msvc.cliente.msvc_cliente.model.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.repositories.ClienteRepository;
-import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteService;
 import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteServiceImpl;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,8 +59,8 @@ public class ClienteServiceTest {
     }
 
     @Test
-    @DisplayName("Debe listar todos las sucursales")
-    public void shouldFindAllSucursales() {
+    @DisplayName("Debe listar todos los cliente")
+    public void shouldFindAllClientes() {
         this.clientes.add(this.clientePrueba) ;
 
         when(clienteRepository.findAll()).thenReturn(this.clientes);
@@ -76,8 +75,8 @@ public class ClienteServiceTest {
     }
 
     @Test
-    @DisplayName("Debe encontrar una sucursal por id")
-    public void shouldFindSucursalById() {
+    @DisplayName("Debe encontrar un cliente por id")
+    public void shouldFindClienteById() {
         when(clienteRepository.findById(1L)).thenReturn(Optional.of(this.clientePrueba));
 
         Cliente result = clienteService.findById(1L);
@@ -90,8 +89,8 @@ public class ClienteServiceTest {
     }
 
     @Test
-    @DisplayName("Debe entregar una excepcion cuando medico id no exista")
-    public void shouldNotFindSucursalById(){
+    @DisplayName("Debe entregar una excepcion cuando cliente id no exista")
+    public void shouldNotFindClienteById(){
         Long idInexistente = 999L;
 
         when(clienteRepository.findById(idInexistente)).thenReturn(Optional.empty());
@@ -100,15 +99,15 @@ public class ClienteServiceTest {
             clienteService.findById(idInexistente);
 
         }).isInstanceOf(ClienteException.class)
-                .hasMessageContaining("El medico con id " + idInexistente
+                .hasMessageContaining("El cliente con id " + idInexistente
                         + " no se encuentra en la base de datos");
 
         verify(clienteRepository, times(1)).findById(idInexistente);
     }
 
     @Test
-    @DisplayName("Debe guardar un nuevo medico")
-    public void shouldSaveMedico(){
+    @DisplayName("Debe guardar un nuevo cliente")
+    public void shouldSaveCliente(){
         when(clienteRepository.save(any(Cliente.class))).thenReturn(this.clientePrueba);
 
         Cliente result = clienteService.save(this.clientePrueba);

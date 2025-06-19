@@ -10,8 +10,8 @@ import lombok.*;
 public class Cliente {
 
     private Long idCliente ;
-    private Long runCliente ;
-    private Long nombreCompleto ;
-    private Long correo ;
+    private String runCliente ;
+    private String nombreCompleto ;
+    private String correo ;
 
 }

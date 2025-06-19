@@ -55,8 +55,8 @@ public class ProductoServiceTest {
     }
 
     @Test
-    @DisplayName("Debe listar todos las sucursales")
-    public void shouldFindAllSucursales() {
+    @DisplayName("Debe listar todos los productos")
+    public void shouldFindAllProductos() {
         this.productos.add(this.productoPrueba) ;
 
         when(productoRepository.findAll()).thenReturn(this.productos);
@@ -67,12 +67,11 @@ public class ProductoServiceTest {
         assertThat(resultado).contains(this.productoPrueba);
 
         verify(productoRepository, times(1)).findAll();
-
     }
 
     @Test
-    @DisplayName("Debe encontrar una sucursal por id")
-    public void shouldFindSucursalById() {
+    @DisplayName("Debe encontrar un producto por id")
+    public void shouldFindProductoById() {
         when(productoRepository.findById(1L)).thenReturn(Optional.of(this.productoPrueba));
 
         Producto result = productoService.findById(1L);
@@ -81,12 +80,11 @@ public class ProductoServiceTest {
         assertThat(result).isEqualTo(this.productoPrueba);
 
         verify(productoRepository,times(1)).findById(1L);
-
     }
 
     @Test
-    @DisplayName("Debe entregar una excepcion cuando medico id no exista")
-    public void shouldNotFindSucursalById(){
+    @DisplayName("Debe entregar una excepcion cuando un producto id no exista")
+    public void shouldNotFindProductoById(){
         Long idInexistente = 999L;
 
         when(productoRepository.findById(idInexistente)).thenReturn(Optional.empty());
@@ -95,15 +93,15 @@ public class ProductoServiceTest {
             productoService.findById(idInexistente);
 
         }).isInstanceOf(ProductoException.class)
-                .hasMessageContaining("El medico con id " + idInexistente
+                .hasMessageContaining("El producto con id " + idInexistente
                         + " no se encuentra en la base de datos");
 
         verify(productoRepository, times(1)).findById(idInexistente);
     }
 
     @Test
-    @DisplayName("Debe guardar un nuevo medico")
-    public void shouldSaveMedico(){
+    @DisplayName("Debe guardar un nuevo producto")
+    public void shouldSaveProducto(){
         when(productoRepository.save(any(Producto.class))).thenReturn(this.productoPrueba);
 
         Producto result = productoService.save(this.productoPrueba);

@@ -68,7 +68,7 @@ public class DetalleCompraServiceTest {
     }
 
     @Test
-    @DisplayName("Se debe guardar una atención")
+    @DisplayName("Se debe guardar un detalle")
     public void shouldCreateDetalleCompra() {
         when(boletaClientsRest.findById(1L)).thenReturn(this.boletaPrueba);
         when(productoClientsRest.findById(1L)).thenReturn(this.productoPrueba);
