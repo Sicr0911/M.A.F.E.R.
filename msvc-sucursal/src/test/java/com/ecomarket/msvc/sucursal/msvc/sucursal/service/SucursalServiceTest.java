@@ -44,6 +44,7 @@ public class SucursalServiceTest {
             sucursal.setIdSucursal((long) i);
             sucursal.setNombre(faker.name().fullName());
             sucursal.setDireccion(faker.address().fullAddress());
+            sucursal.setTelefono(faker.phoneNumber().phoneNumber());
 
             this.sucursales.add(sucursal);
         }

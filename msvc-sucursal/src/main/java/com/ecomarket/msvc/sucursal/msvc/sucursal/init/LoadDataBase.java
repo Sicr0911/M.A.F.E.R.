@@ -27,10 +27,10 @@ public class LoadDataBase implements CommandLineRunner {
             for (int i = 0; i < 10; i++) {
                 Sucursal sucursal = new Sucursal();
 
-                sucursal.setIdSucursal();
-                sucursal.setNombre();
-                sucursal.setDireccion();
-                sucursal.setTelefono();
+                sucursal.setIdSucursal(faker.random().nextLong());
+                sucursal.setNombre(faker.name().fullName());
+                sucursal.setDireccion(faker.address().fullAddress());
+                sucursal.setTelefono(faker.phoneNumber().phoneNumber());
 
                 sucursal = sucursalRepository.save(sucursal);
                 logger.info(sucursal.toString());
