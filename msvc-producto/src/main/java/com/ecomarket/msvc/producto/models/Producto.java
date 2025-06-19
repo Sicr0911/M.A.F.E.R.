@@ -30,6 +30,6 @@ public class Producto {
     private String descripcion;
 
     @Column(nullable = false)
-    private Long stock;
+    private int stock;
 
 }

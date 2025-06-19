@@ -45,7 +45,7 @@ public class ClienteServiceTest {
             Cliente cliente = new Cliente();
             cliente.setIdCliente((long) i);
             cliente.setNombreCompleto(faker.name().fullName());
-            cliente.setCorreo(faker.address().fullAddress());
+            cliente.setCorreo(faker.internet().emailAddress());
 
             String numeroString = faker.idNumber().valid().replaceAll("-","");
             String ultimo = numeroString.substring(numeroString.length()-1);
