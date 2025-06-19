@@ -4,6 +4,7 @@ import com.ecomarket.msvc.cliente.msvc_cliente.exceptions.ClienteException;
 import com.ecomarket.msvc.cliente.msvc_cliente.model.Cliente;
 import com.ecomarket.msvc.cliente.msvc_cliente.repositories.ClienteRepository;
 import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteService;
+import com.ecomarket.msvc.cliente.msvc_cliente.services.ClienteServiceImpl;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -29,7 +30,7 @@ public class ClienteServiceTest {
     private ClienteRepository clienteRepository ;
 
     @InjectMocks
-    private ClienteService clienteService;
+    private ClienteServiceImpl clienteService;
 
     private Cliente clientePrueba;
 

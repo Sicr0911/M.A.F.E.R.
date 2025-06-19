@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -38,6 +39,6 @@ public class DetalleCompra {
     private Long idProducto;
 
     @Column(nullable = false)
-    private Date fecha;
+    private LocalDate fecha;
 
 }
