@@ -66,7 +66,6 @@ public class SucursalServiceTest {
         assertThat(resultado).contains(this.sucursalPrueba);
 
         verify(sucursalRepository, times(1)).findAll();
-
     }
 
     @Test
@@ -80,7 +79,6 @@ public class SucursalServiceTest {
         assertThat(result).isEqualTo(this.sucursalPrueba);
 
         verify(sucursalRepository,times(1)).findById(1L);
-
     }
 
     @Test
