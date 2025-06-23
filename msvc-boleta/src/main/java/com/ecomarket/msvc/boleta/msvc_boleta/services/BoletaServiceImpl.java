@@ -57,7 +57,7 @@ public class BoletaServiceImpl implements BoletaService{
             }
 
             ClienteDTO clienteDTO = new ClienteDTO();
-            clienteDTO.setRunCliente(cliente.getIdCliente());
+            clienteDTO.setRunCliente(cliente.getRunCliente());
             clienteDTO.setNombreCompleto(cliente.getNombreCompleto());
             clienteDTO.setCorreo(cliente.getCorreo());
 
