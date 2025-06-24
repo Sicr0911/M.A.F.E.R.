@@ -18,7 +18,7 @@ public class ProductoModelAssembler implements RepresentationModelAssembler<Prod
                 entity,
                 linkTo(methodOn(ProductoControllerV2.class).findById(entity.getIdProducto())).withSelfRel(),
                 linkTo(methodOn(ProductoControllerV2.class).findAll()).withRel("producto"),
-                Link.of("http://localhost:8005/sucursal/"+entity.getIdProducto()).withRel("producto")
+                Link.of("http://localhost:8005/productos/"+entity.getIdProducto()).withRel("producto")
             );
         }
 }
