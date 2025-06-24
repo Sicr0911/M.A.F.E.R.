@@ -93,6 +93,17 @@
             <version>2.2.30</version>
             <scope>compile</scope>
         </dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>com.ecomarket.msvc.sucursal</groupId>
+            <artifactId>msvc-sucursal</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 	<dependencyManagement>
 		<dependencies>
