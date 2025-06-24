@@ -1,4 +1,4 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.assemblers;
 
-public class ModelAssembler {
+public class BoletaModelAssembler {
 }

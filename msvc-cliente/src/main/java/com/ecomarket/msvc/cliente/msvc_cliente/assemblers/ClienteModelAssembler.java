@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.boleta.msvc_boleta.assemblers;
+package com.ecomarket.msvc.cliente.msvc_cliente.assemblers;
 
-public class ModelAssembler {
+public class ClienteModelAssembler {
 }

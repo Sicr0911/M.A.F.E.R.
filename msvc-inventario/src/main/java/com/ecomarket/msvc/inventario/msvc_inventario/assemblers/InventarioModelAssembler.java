@@ -1,4 +1,4 @@
-package com.ecomarket.msvc.boleta.msvc_boleta.assemblers;
+package com.ecomarket.msvc.inventario.msvc_inventario.assemblers;
 
-public class ModelAssembler {
+public class InventarioModelAssembler {
 }

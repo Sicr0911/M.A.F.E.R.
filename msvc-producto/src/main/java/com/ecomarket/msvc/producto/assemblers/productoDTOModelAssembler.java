@@ -1,4 +1,4 @@
 package com.ecomarket.msvc.producto.assemblers;
 
-public class ProductoModelAssembler {
+public class productoDTOModelAssembler {
 }
