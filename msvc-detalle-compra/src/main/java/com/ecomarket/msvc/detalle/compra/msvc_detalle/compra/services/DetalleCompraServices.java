@@ -10,7 +10,7 @@ import java.util.List;
 public interface DetalleCompraServices {
 
     List<DetalleCompraDTO> findAll();
-    DetalleCompra findbyId(Long Id);
+    DetalleCompra findById(Long Id);
     DetalleCompra save(DetalleCompra detalleCompra);
     List<DetalleCompra> findByProductoId(Long Id);
     List<DetalleCompra> findByBoletaId(Long Id);

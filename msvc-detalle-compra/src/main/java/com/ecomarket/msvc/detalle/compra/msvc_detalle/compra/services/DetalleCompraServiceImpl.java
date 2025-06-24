@@ -66,7 +66,7 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
     }
 
     @Override
-    public DetalleCompra findbyId(Long id) {
+    public DetalleCompra findById(Long id) {
         return this.detalleCompraRepository.findById(id).orElseThrow(
             () -> new DetalleCompraException("El detalle con el id:" + id + "no existe")
         );
