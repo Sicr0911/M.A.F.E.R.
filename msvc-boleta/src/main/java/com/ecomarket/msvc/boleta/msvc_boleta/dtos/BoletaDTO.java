@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor @NoArgsConstructor
 public class BoletaDTO {
 
+    private Long idBoleta;
     private LocalDateTime HoraBoleta;
     private Integer Costo;
     private String Detalle;

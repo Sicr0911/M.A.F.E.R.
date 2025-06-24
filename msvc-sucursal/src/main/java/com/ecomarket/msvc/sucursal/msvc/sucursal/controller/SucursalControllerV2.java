@@ -41,13 +41,13 @@ public class SucursalControllerV2 {
     @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     @Operation(
             summary = "Devuelve todos los medicos",
-            description = "Este metodo debe retornar un List de Medico, en caso "+
-                    "de que no encuentre nada retorna una List vacia"
+            description = "Este metodo debe retornar un Lista de Susursal, en caso "+
+                    "de que no encuentre nada retorna una Lista vacia"
     )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Se retornaron todos los medicos ok",
+                    description = "Se retornan todas las sucursales",
                     content = @Content(
                             mediaType = MediaTypes.HAL_JSON_VALUE,
                             schema = @Schema(implementation = Sucursal.class)
@@ -71,14 +71,14 @@ public class SucursalControllerV2 {
 
     @GetMapping(value = "/{id}",  produces = MediaTypes.HAL_JSON_VALUE)
     @Operation(
-            summary = "Devuelve un medico con respecto a su id",
+            summary = "Devuelve una sucursal segun su id",
             description = "Este metodo debe retornar un Medico cuando es consultado "+
                     "mediante su id"
     )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Se retorna el medico encontrado",
+                    description = "Se retorna sucursal",
                     content = @Content(
                             mediaType = MediaTypes.HAL_JSON_VALUE,
                             schema = @Schema(implementation = Sucursal.class)
@@ -86,7 +86,7 @@ public class SucursalControllerV2 {
             ),
             @ApiResponse(
                     responseCode = "404",
-                    description = "Error - Medico con ID no existe",
+                    description = "Error - sucursal con ID no existe",
                     content = @Content(
                             mediaType = "application/json",
                             schema = @Schema(implementation = ErrorDTO.class)
