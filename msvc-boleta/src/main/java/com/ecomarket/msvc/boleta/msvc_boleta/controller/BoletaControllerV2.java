@@ -1,6 +1,8 @@
 package com.ecomarket.msvc.boleta.msvc_boleta.controller;
 
+import com.ecomarket.msvc.boleta.msvc_boleta.assemblers.BoletaDTOModelAssembler;
 import com.ecomarket.msvc.boleta.msvc_boleta.assemblers.BoletaModelAssembler;
+import com.ecomarket.msvc.boleta.msvc_boleta.dtos.BoletaDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.dtos.errorDTO;
 import com.ecomarket.msvc.boleta.msvc_boleta.model.entities.Boleta;
 import com.ecomarket.msvc.boleta.msvc_boleta.services.BoletaService;
@@ -39,6 +41,9 @@ public class BoletaControllerV2 {
     @Autowired
     private BoletaModelAssembler boletaModelAssembler;
 
+    @Autowired
+    private BoletaDTOModelAssembler boletaDTOModelAssembler;
+
     @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     @Operation(
             summary = "Devuelve todos los medicos",
@@ -55,12 +60,12 @@ public class BoletaControllerV2 {
                     )
             )
     })
-    public ResponseEntity<CollectionModel<EntityModel<Boleta>>> findAll() {
-        List<EntityModel<Boleta>> entityModels = this.boletaService.findAll()
+    public ResponseEntity<CollectionModel<EntityModel<BoletaDTO>>> findAll() {
+        List<EntityModel<BoletaDTO>> entityModels = this.boletaService.findAll()
                 .stream()
-                .map(boletaModelAssembler::toModel)
+                .map(boletaDTOModelAssembler::toModel)
                 .toList();
-        CollectionModel<EntityModel<Boleta>> collectionModel = CollectionModel.of(
+        CollectionModel<EntityModel<BoletaDTO>> collectionModel = CollectionModel.of(
                 entityModels,
                 linkTo(methodOn(BoletaControllerV2.class).findAll()).withSelfRel()
         );
@@ -98,4 +103,6 @@ public class BoletaControllerV2 {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(entityModel);
+
+    }
 }

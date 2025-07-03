@@ -48,6 +48,7 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
             }
 
             BoletaDTO boletaDTO = new BoletaDTO() ;
+            boletaDTO.setId(detalleCompra.getIdBoleta());
             boletaDTO.setHoraBoleta(boleta.getHoraBoleta());
             boletaDTO.setDetalle(boleta.getDetalle());
 
@@ -56,7 +57,8 @@ public class DetalleCompraServiceImpl implements DetalleCompraServices{
             productoDTO.setDescripcionProducto(producto.getDescripcionProducto());
             productoDTO.setPrecioProducto(producto.getPrecioProducto());
 
-            DetalleCompraDTO detalleCompraDTO = new DetalleCompraDTO() ;
+            DetalleCompraDTO detalleCompraDTO = new DetalleCompraDTO();
+            detalleCompraDTO.setId(detalleCompra.getIdDetalleCompra());
             detalleCompraDTO.setIdBoleta(boletaDTO) ;
             detalleCompraDTO.setIdProducto(productoDTO);
 

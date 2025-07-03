@@ -1,7 +1,9 @@
 package com.ecomarket.msvc.inventario.msvc_inventario.controllers;
 
+import com.ecomarket.msvc.inventario.msvc_inventario.assemblers.InventarioDTOModelAssembler;
 import com.ecomarket.msvc.inventario.msvc_inventario.assemblers.InventarioModelAssembler;
 import com.ecomarket.msvc.inventario.msvc_inventario.dtos.ErrorDTO;
+import com.ecomarket.msvc.inventario.msvc_inventario.dtos.InventarioDTO;
 import com.ecomarket.msvc.inventario.msvc_inventario.models.entities.Inventario;
 import com.ecomarket.msvc.inventario.msvc_inventario.services.InventarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,12 +42,13 @@ public class InventarioControllerV2 {
     @Autowired
     private InventarioModelAssembler inventarioModelAssembler;
 
-    @Autowired InventarioControllerV2 inventarioControllerV2;
+    @Autowired
+    private InventarioDTOModelAssembler inventarioDTOModelAssembler;
 
     @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     @Operation(
             summary = "Devuelve el inventario",
-            description = "Este metodo debe retornar un Lista de inventario, en caso "+
+            description = "Este metodo debe retornar un Lista de inventario, en caso " +
                     "de que no encuentre nada retorna una Lista vacia"
     )
     @ApiResponses(value = {
@@ -58,12 +61,12 @@ public class InventarioControllerV2 {
                     )
             )
     })
-    public ResponseEntity<CollectionModel<EntityModel<Inventario>>> findAll() {
-        List<EntityModel<Inventario>> entityModels = this.inventarioService.findAll()
+    public ResponseEntity<CollectionModel<EntityModel<InventarioDTO>>> findAll() {
+        List<EntityModel<InventarioDTO>> entityModels = this.inventarioService.findAll()
                 .stream()
-                .map(inventarioModelAssembler::toModel)
+                .map(inventarioDTOModelAssembler::toModel)
                 .toList();
-        CollectionModel<EntityModel<Inventario>> collectionModel = CollectionModel.of(
+        CollectionModel<EntityModel<InventarioDTO>> collectionModel = CollectionModel.of(
                 entityModels,
                 linkTo(methodOn(InventarioControllerV2.class).findAll()).withSelfRel()
         );
@@ -101,4 +104,6 @@ public class InventarioControllerV2 {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(entityModel);
+
+    }
 }

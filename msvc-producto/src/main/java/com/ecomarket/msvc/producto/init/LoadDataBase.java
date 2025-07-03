@@ -30,7 +30,7 @@ public class LoadDataBase implements CommandLineRunner {
                 producto.setNombre(faker.name().fullName());
                 producto.setDescripcion(faker.book().title());
                 producto.setIdProducto(faker.random().nextLong());
-                producto.setStock(faker.random().nextLong());
+                producto.setStock(faker.random().nextInt());
 
                 producto = productoRepository.save(producto);
                 logger.info(producto.toString());

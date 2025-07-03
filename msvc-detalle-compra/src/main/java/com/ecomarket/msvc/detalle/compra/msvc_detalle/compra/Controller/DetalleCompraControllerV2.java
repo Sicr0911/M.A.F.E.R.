@@ -47,6 +47,7 @@ public class DetalleCompraControllerV2 {
     @Autowired
     private DetalleCompraDTOModelAssembler detalleCompraDTOModelAssembler;
 
+
     @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     @Operation(
             summary = "Devuelve todos los clientes",
@@ -64,12 +65,12 @@ public class DetalleCompraControllerV2 {
                 )
         })
 
-        public ResponseEntity<CollectionModel<EntityModel<DetalleCompra>>> findAll() {
-            List<EntityModel<DetalleCompra>> entityModels = this.detalleCompraServices.findAll()
+        public ResponseEntity<CollectionModel<EntityModel<DetalleCompraDTO>>> findAll() {
+            List<EntityModel<DetalleCompraDTO>> entityModels = this.detalleCompraServices.findAll()
                     .stream()
-                    .map(detalleCompraModelassembler::toModel)
+                    .map(detalleCompraDTOModelAssembler::toModel)
                     .toList();
-            CollectionModel<EntityModel<DetalleCompra>> collectionModel = CollectionModel.of(
+            CollectionModel<EntityModel<DetalleCompraDTO>> collectionModel = CollectionModel.of(
                     entityModels,
                     linkTo(methodOn(DetalleCompraControllerV2.class).findAll()).withSelfRel()
             );
@@ -141,13 +142,13 @@ public class DetalleCompraControllerV2 {
     @Parameters(value = {
             @Parameter(name = "id", description = "Este es el id unico de una boleta", required = true)
     })
-    public ResponseEntity<CollectionModel<EntityModel<DetalleCompraDTO>>> findByBoletaId(@PathVariable Long id) {
-        List<EntityModel<DetalleCompraDTO>> entityModels = this.detalleCompraServices.findByBoletaId(id)
+    public ResponseEntity<CollectionModel<EntityModel<DetalleCompra>>> findByBoletaId(@PathVariable Long id) {
+        List<EntityModel<DetalleCompra>> entityModels = this.detalleCompraServices.findByBoletaId(id)
                 .stream()
-                .map(detalleCompraDTOModelAssembler::toModel)
+                .map(detalleCompraModelassembler::toModel)
                 .toList();
 
-        CollectionModel<EntityModel<DetalleCompraDTO>> collectionModel = CollectionModel.of(
+        CollectionModel<EntityModel<DetalleCompra>> collectionModel = CollectionModel.of(
                 entityModels,
                 linkTo(methodOn(DetalleCompraControllerV2.class).findByBoletaId(id)).withSelfRel()
         );

@@ -19,7 +19,8 @@ public class BoletaModelAssembler implements RepresentationModelAssembler<Boleta
                 entity,
                 linkTo(methodOn(BoletaControllerV2.class).findById(entity.getIdBoleta())).withSelfRel(),
                 linkTo(methodOn(BoletaControllerV2.class).findAll()).withRel("Boletas"),
-                Link.of("http://localhost:8001/boleta/" + entity.getIdBoleta()).withRel("boletas")
+                Link.of("http://localhost:8002/api/v2/clientes/"+entity.getIdCliente()).withRel("cliente"),
+                Link.of("http://localhost:800+/api/v2/sucursales/"+entity.getIdSucursal()).withRel("sucursal")
         );
     }
 }

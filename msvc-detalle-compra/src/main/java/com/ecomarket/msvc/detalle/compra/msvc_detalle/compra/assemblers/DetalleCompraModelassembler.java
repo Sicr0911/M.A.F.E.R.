@@ -18,7 +18,8 @@ public class DetalleCompraModelassembler implements RepresentationModelAssembler
                 entity,
                 linkTo(methodOn(DetalleCompraControllerV2.class).findById(entity.getIdProducto())).withSelfRel(),
                 linkTo(methodOn(DetalleCompraControllerV2.class).findAll()).withRel("producto"),
-                Link.of("http://localhost:8005/productos/"+entity.getIdProducto()).withRel("producto")
+                Link.of("http://localhost:8001/api/v2/boletas/"+entity.getIdBoleta()).withRel("boleta"),
+                Link.of("http://localhost:8005/api/v2/productos/"+entity.getIdProducto()).withRel("producto")
         );
     }
 }

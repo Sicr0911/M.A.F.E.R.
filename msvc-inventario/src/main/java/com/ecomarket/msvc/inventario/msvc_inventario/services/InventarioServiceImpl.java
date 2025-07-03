@@ -59,6 +59,7 @@ public class InventarioServiceImpl implements InventarioService {
             sucursalDTO.setTelefono(sucursal.getTelefono());
 
             InventarioDTO inventarioDTO = new InventarioDTO() ;
+            inventarioDTO.setId(inventario.getIdInventario());
             inventarioDTO.setIdProducto(productoDTO);
             inventarioDTO.setIdSucursal(sucursalDTO);
 

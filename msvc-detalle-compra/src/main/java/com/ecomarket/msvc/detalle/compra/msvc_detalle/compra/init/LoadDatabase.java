@@ -10,7 +10,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
@@ -25,7 +27,8 @@ public class LoadDatabase implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     LocalDateTime now = LocalDateTime.now();
-    Date fecha = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    LocalDate fecha = LocalDate.now();
+
 
     @Override
     public void run(String... args) throws Exception {
