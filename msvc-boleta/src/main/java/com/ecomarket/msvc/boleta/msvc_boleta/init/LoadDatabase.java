@@ -32,7 +32,6 @@ public class LoadDatabase implements CommandLineRunner {
                 boleta.setIdBoleta(faker.random().nextLong());
                 boleta.setDetalle(faker.commerce().productName());
                 boleta.setIdSucursal(faker.random().nextLong());
-                boleta.setIdDetalleCompra(faker.random().nextLong());
                 boleta.setIdCliente(faker.random().nextLong());
                 boleta.setHoraBoleta(LocalDateTime.now());
 

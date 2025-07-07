@@ -50,7 +50,6 @@ public class BoletaServiceImpl implements BoletaService{
             Sucursal sucursal = null ;
 
             try {
-                detalleCompra = this.detalleCompraClientsRest.findById(boleta.getIdDetalleCompra()) ;
                 sucursal = this.sucursalClientsRest.findById(detalleCompra.getIdSucursal());
             } catch (FeignException ex) {
                 throw new BoletaExeption("El detalle no existe en el sistema");
@@ -96,7 +95,7 @@ public class BoletaServiceImpl implements BoletaService{
     public Boleta save(Boleta boleta) {
         try {
             Cliente cliente = this.clienteClientsRest.findById(boleta.getIdCliente());
-            DetalleCompra detalleCompra = this.detalleCompraClientsRest.findById(boleta.getIdDetalleCompra());
+            DetalleCompra detalleCompra = this.detalleCompraClientsRest.findById(boleta.getIdBoleta());
         } catch (FeignException ex) {
             throw new BoletaExeption("El cliente no está asociado en el sistema");
         }
@@ -113,10 +112,6 @@ public class BoletaServiceImpl implements BoletaService{
         return this.boletaRepositories.findByIdCliente(clienteId);
     }
 
-    @Override
-    public List<Boleta> findByDetalleCompraId(Long detalleCompraId) {
-        return this.boletaRepositories.findByIdDetalleCompra(detalleCompraId);
-    }
 
 }
 

@@ -25,10 +25,6 @@ public class Boleta {
     @NotNull(message = "El campo no puede ser vacio")
     private Long idCliente ;
 
-    @Column(name = "id_detalle_compra", nullable = false)
-    @NotNull(message = "El campo no puede ser vacio")
-    private Long idDetalleCompra; // BORRAR ESTE CAMPO SI NO UNA BOLETA PUEDE TENER SOLAMENTE UN PRODUCTO
-
     @Column(name = "id_sucursal", nullable = false)
     @NotNull(message = "El campo no puede ser vacio")
     private Long idSucursal;

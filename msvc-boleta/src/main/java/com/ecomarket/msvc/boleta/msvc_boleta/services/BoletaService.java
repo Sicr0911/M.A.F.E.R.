@@ -14,5 +14,5 @@ public interface BoletaService {
     Boleta save(Boleta boleta) ;
     List<Boleta>  findBySucursalId (Long sucursalId) ;
     List<Boleta>  findByClienteId (Long clienteId) ;
-    List<Boleta>  findByDetalleCompraId (Long detalleCompraId) ;
+
 }
